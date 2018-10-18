@@ -4,5 +4,6 @@ data class MainRecipe(
     val title: String,
     val thumbNail: String,
     val like: Int,
-    val comment: Int
+    val comment: Int,
+    val difficult: String
 )
