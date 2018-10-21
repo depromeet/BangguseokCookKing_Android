@@ -50,4 +50,7 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.8.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
 
+    // rating bar
+    implementation 'com.github.techery:properratingbar:0.0.5'
+
 }
