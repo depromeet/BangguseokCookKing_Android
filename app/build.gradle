@@ -53,4 +53,7 @@ dependencies {
     // rating bar
     implementation 'com.github.techery:properratingbar:0.0.5'
 
+    // image picker
+    implementation  'com.fxn769:pix:1.2.5'
+
 }
