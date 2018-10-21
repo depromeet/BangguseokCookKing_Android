@@ -21,6 +21,8 @@
         </activity>
         <activity android:name=".recipe.RecipeActivity">
         </activity>
+
+        <activity android:name=".write.WriteActivity"/>
     </application>
 
 </manifest>

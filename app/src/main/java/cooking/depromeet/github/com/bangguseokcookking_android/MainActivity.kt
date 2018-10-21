@@ -4,7 +4,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import cooking.depromeet.github.com.bangguseokcookking_android.write.WriteActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.intentFor
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,8 +27,7 @@ class MainActivity : AppCompatActivity() {
 
         // 글쓰기
         main_ib_write.setOnClickListener {
-
+            startActivity(intentFor<WriteActivity>())
         }
-
     }
 }
