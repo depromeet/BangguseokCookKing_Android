@@ -48,6 +48,7 @@ class MainViewHolder(
     fun bind(recipe: MainRecipe) {
 
         view.setOnClickListener {
+
             eventListener.onItemClick(recipe)
         }
 
