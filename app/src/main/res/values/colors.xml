@@ -6,6 +6,7 @@
     <color name="colorPrimaryRecipe">#FFFFFF</color>
     <color name="colorPrimaryDarkRecipe">#FFFFFF</color>
     <color name="colorAccentRecipe">#ffb245</color>
+    <color name="colorAccentText">#ffffff</color>
     <color name="colorPrimaryText">#000000</color>
     <color name="colorSecondaryText">#5e5e5e</color>
     <color name="colorDivider">#f1f1f1</color>
