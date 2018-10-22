@@ -1,16 +1,19 @@
 package cooking.depromeet.github.com.bangguseokcookking_android
 
 import android.os.Bundle
+import android.util.Log
+import android.view.MotionEvent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.GravityCompat
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import cooking.depromeet.github.com.bangguseokcookking_android.search.SearchActivity
 import cooking.depromeet.github.com.bangguseokcookking_android.write.WriteActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.main_drawer.*
 import org.jetbrains.anko.intentFor
 
 class MainActivity : AppCompatActivity() {
-
 
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<*>
 
@@ -21,10 +24,14 @@ class MainActivity : AppCompatActivity() {
         // bottom sheet
         bottomSheetBehavior = BottomSheetBehavior.from(findViewById<ConstraintLayout>(R.id.main_bottom))
 
-
         // navigation drawer
         navigationDrawer()
 
+        // search
+        main_et_search.setOnClickListener {
+            Log.e("d", "d")
+            startActivity(intentFor<SearchActivity>())
+        }
 
         // 마이페이지
         main_ib_mypage.setOnClickListener {
@@ -50,4 +57,17 @@ class MainActivity : AppCompatActivity() {
 
         true
     }
+
+    override fun onTouchEvent(event: MotionEvent?): Boolean {
+        super.onTouchEvent(event)
+
+        if (main_drawer.isDrawerOpen(GravityCompat.START)) {
+            Log.e("test", "r")
+            return false
+        }
+        Log.e("test", "zzr")
+        return true
+
+    }
+
 }
