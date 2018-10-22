@@ -12,10 +12,7 @@ import com.fxn.utility.PermUtil
 import cooking.depromeet.github.com.bangguseokcookking_android.R
 import kotlinx.android.synthetic.main.activity_write.*
 import org.jetbrains.anko.AnkoLogger
-import org.jetbrains.anko.error
 import org.jetbrains.anko.toast
-import android.opengl.ETC1.getHeight
-import android.view.ViewTreeObserver
 
 
 class WriteActivity : AppCompatActivity(), AnkoLogger, WriteRecipeEventListener {
@@ -33,8 +30,6 @@ class WriteActivity : AppCompatActivity(), AnkoLogger, WriteRecipeEventListener 
     private val recipeImages: MutableList<String> = mutableListOf()
     private val recipeContents: MutableList<String> = mutableListOf()
 
-    private var isCameraOpen = false
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_write)
@@ -47,11 +42,7 @@ class WriteActivity : AppCompatActivity(), AnkoLogger, WriteRecipeEventListener 
         }
 
         // plus btn
-        write_ib_plus.setOnClickListener {
-            addRecipe()
-            error { adapter.itemCount }
-            scrollToLastPosition()
-        }
+        write_ib_plus.setOnClickListener { isValidRecipeCount() }
 
         // rating bar
         write_rating_bar.setListener {
@@ -63,10 +54,7 @@ class WriteActivity : AppCompatActivity(), AnkoLogger, WriteRecipeEventListener 
         }
 
         // bottom recyclerview
-
         adapter = WriteAdapter(this)
-
-
 
         write_recycler_view.apply {
             layoutManager = LinearLayoutManager(this@WriteActivity).apply {
@@ -74,19 +62,20 @@ class WriteActivity : AppCompatActivity(), AnkoLogger, WriteRecipeEventListener 
             }
             adapter = this@WriteActivity.adapter
         }
-
     }
 
     private fun ratingDifficult(text: String) {
         write_tv_difficult.text = text
     }
 
-    private fun addRecipe() {
+    private fun addRecipe(url: String) {
         recipeCount = adapter.itemCount
         if (recipeCount < 6) {
 
             if (recipeImages.size == recipeCount) {
-                adapter.addItem(WriteRecipe("", "", recipeCount))
+                addImage(url)
+                addContent("")
+                adapter.addItem(WriteRecipe(url, "", recipeCount))
                 if (adapter.itemCount == 6) write_ib_plus.visibility = View.GONE
             } else toast("이전 단계 작성을 완료해 주세요.")
 
@@ -101,8 +90,7 @@ class WriteActivity : AppCompatActivity(), AnkoLogger, WriteRecipeEventListener 
             IMAGE_PICKER -> {
                 if (resultCode == Activity.RESULT_OK) {
                     val image = data?.getStringArrayListExtra(Pix.IMAGE_RESULTS)
-                    addImage(image!![0])
-                    updateImage()
+                    addRecipe(image!![0])
                     scrollToLastPosition()
                 }
             }
@@ -125,36 +113,26 @@ class WriteActivity : AppCompatActivity(), AnkoLogger, WriteRecipeEventListener 
     }
 
     override fun onTextWatcher(text: String, position: Int) {
-        if (recipeContents.isEmpty()) {
-            recipeContents.add("text")
-            error { "empty" }
-        }
-        if (recipeContents.size == position - 1) {
-            recipeContents.add(text)
-            error { "add" }
-        }
+        recipeContents[position - 1] = text
+    }
 
-        if (recipeContents.size - 1 == position) {
-            recipeContents[position] = text
-            error { "set" }
-        }
+    private fun isValidRecipeCount() {
+        if (adapter.itemCount == 0 || adapter.itemCount < 7) {
 
-        error { "$text $position" }
+            if (recipeContents.isNotEmpty() && recipeContents[adapter.itemCount - 1].isEmpty()) {
+                toast("글을 작성해 주세요.")
+                return
+            }
+            openImagePicker()
+        }
     }
 
     private fun openImagePicker() = Pix.start(this, IMAGE_PICKER, 1)
 
-    private fun addImage(url: String) {
-        recipeImages.add(url)
-    }
+    private fun addImage(url: String) = recipeImages.add(url)
 
-    private fun updateImage() {
-        adapter.changeImage(recipeImages[currentRecipePosition], currentRecipePosition)
-    }
+    private fun addContent(content: String) = recipeContents.add(content)
 
-    /*private fun scrollToLastPosition() = write_scroll_view.post {
-        write_scroll_view.fullScroll(View.FOCUS_DOWN)
-    }*/
     private fun scrollToLastPosition() = write_scroll_view.viewTreeObserver.addOnGlobalLayoutListener {
         write_scroll_view.post {
             write_scroll_view.fullScroll(View.FOCUS_DOWN)
