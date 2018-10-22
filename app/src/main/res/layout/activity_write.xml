@@ -7,6 +7,8 @@
         android:layout_height="match_parent">
 
     <androidx.core.widget.NestedScrollView
+            android:fillViewport="true"
+            android:id="@+id/write_scroll_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -139,6 +141,7 @@
                     android:layout_width="wrap_content"
                     app:prb_defaultRating="3"
                     app:prb_totalTicks="5"
+                    app:prb_clickable="true"
                     android:layout_marginTop="10dp"
                     app:prb_tickNormalDrawable="@drawable/ic_star_gray"
                     app:prb_tickSelectedDrawable="@drawable/ic_star"
@@ -149,7 +152,7 @@
             <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:id="@+id/write_tv_difficult"
-                    tools:text="어려움"
+                    android:text="보통"
                     app:layout_constraintStart_toEndOf="@id/write_rating_bar"
                     app:layout_constraintTop_toBottomOf="@id/write_title_line"
                     android:layout_marginTop="14dp"
@@ -222,6 +225,7 @@
                     app:layout_constraintEnd_toStartOf="@id/write_end_guide"
                     app:layout_constraintTop_toBottomOf="@id/write_menu_line"
                     android:layout_marginTop="14dp"
+                    android:nestedScrollingEnabled="false"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"/>
 
@@ -233,6 +237,8 @@
                     android:src="@drawable/ic_write_plus"
                     android:layout_marginTop="22dp"
                     android:background="@null"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginBottom="20dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
