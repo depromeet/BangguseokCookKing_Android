@@ -7,6 +7,8 @@ import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import cooking.depromeet.github.com.bangguseokcookking_android.api.domain.MainRecipe
+import cooking.depromeet.github.com.bangguseokcookking_android.util.base_url
 
 class MainAdapter(
     private val eventListener: MainBottomEventListener
@@ -28,6 +30,9 @@ class MainAdapter(
     }
 
     fun addItemAll(items: MutableList<MainRecipe>) {
+        if (this.items.isNotEmpty()) {
+            this.items.clear()
+        }
         this.items.addAll(items)
         notifyDataSetChanged()
     }
@@ -52,14 +57,17 @@ class MainViewHolder(
             eventListener.onItemClick(recipe)
         }
 
+        // 서버에서 도메인 안줌....
+        val imageUrl = base_url + recipe.image
+
         Glide.with(view.context)
-            .load(recipe.thumbNail)
+            .load(imageUrl)
             .into(thumbNail)
 
         title.text = recipe.title
         likeCount.text = recipe.like.toString()
         commentCount.text = recipe.comment.toString()
-        difficult.text = recipe.difficult
+        difficult.text = "쉬움"
     }
 
 }

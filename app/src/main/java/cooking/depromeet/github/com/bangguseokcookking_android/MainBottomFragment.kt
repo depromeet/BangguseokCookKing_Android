@@ -4,10 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.widget.AppCompatTextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import cooking.depromeet.github.com.bangguseokcookking_android.api.RetrofitService
+import cooking.depromeet.github.com.bangguseokcookking_android.api.domain.MainRecipe
 import cooking.depromeet.github.com.bangguseokcookking_android.recipe.RecipeActivity
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.main_bottom.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.intentFor
@@ -16,6 +19,9 @@ class MainBottomFragment : Fragment(), MainBottomEventListener, AnkoLogger {
 
     private val adapter by lazy { MainAdapter(this) }
     private lateinit var menuAdapter: MainMenuAdapter
+
+    private val api by lazy { RetrofitService.api() }
+    private val composite = CompositeDisposable()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.main_bottom, container, false)
@@ -36,7 +42,7 @@ class MainBottomFragment : Fragment(), MainBottomEventListener, AnkoLogger {
 
         // 메뉴 클릭시 데이터 불러오기
         menuAdapter = MainMenuAdapter {
-
+            callList(it)
         }
 
         main_menu_recycler_view.apply {
@@ -44,30 +50,34 @@ class MainBottomFragment : Fragment(), MainBottomEventListener, AnkoLogger {
             adapter = this@MainBottomFragment.menuAdapter
         }
 
-        // dummy
-
-        val items: MutableList<MainRecipe> = mutableListOf()
-
-        for (i in 0..10) {
-            items.add(MainRecipe("김치찌게$i", "https://t1.daumcdn.net/cfile/tistory/196D084A4EB222222D", 998, 143, "쉬움"))
-        }
-
-        adapter.addItemAll(items)
-
         val menuItems: MutableList<String> = mutableListOf()
 
-        for (i in 0..8) {
-            menuItems.add("치킨")
-        }
+        // 가로 리사이클러뷰 데이터 json 없어서 임시로 테스트 db 있는거만 만들어놈
+        menuItems.add("계란")
+        menuItems.add("새우")
 
         menuAdapter.addItems(menuItems)
 
-        main_tv_content.text = "안녕하세요 'ㅎㅇ'\n오늘은 어떤 요리를 해볼까요?"
+        main_tv_content.text = "안녕하세요 '민호'님\n오늘은 어떤 요리를 해볼까요?"
+
+        callList("계란")
+
     }
 
+    // 세로 리사이클러뷰 아이템 클릭 id 값 넘김
     override fun onItemClick(recipe: MainRecipe) {
-        context?.startActivity(context?.intentFor<RecipeActivity>())
+        context?.startActivity(context?.intentFor<RecipeActivity>("id" to recipe.id))
     }
+
+    private fun callList(query: String) =
+        composite.add(api.getMainRecipeList(query)
+            .observeOn(AndroidSchedulers.mainThread())
+            .filter { it.response }
+            .map { it.recipeList }
+            .doOnSuccess {
+                adapter.addItemAll(it)
+            }
+            .subscribe())
 
 }
 

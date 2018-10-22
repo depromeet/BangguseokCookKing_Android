@@ -24,7 +24,8 @@
 
         <activity android:name=".write.WriteActivity"/>
 
-        <activity android:name=".search.SearchActivity"/>
+        <activity android:name=".search.SearchActivity"
+                  android:windowSoftInputMode="stateVisible|adjustNothing"/>
     </application>
 
 </manifest>
