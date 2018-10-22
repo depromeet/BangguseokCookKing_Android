@@ -3,7 +3,6 @@ package cooking.depromeet.github.com.bangguseokcookking_android.ui.splash
 import android.os.Bundle
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
-import cooking.depromeet.github.com.bangguseokcookking_android.ui.MainActivity
 import cooking.depromeet.github.com.bangguseokcookking_android.R
 import cooking.depromeet.github.com.bangguseokcookking_android.ui.login.LoginActivity
 import io.reactivex.Completable
@@ -32,9 +31,7 @@ class SplashActivity : AppCompatActivity() {
         composite.add(Completable.timer(3000, TimeUnit.MILLISECONDS)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.computation())
-            .doOnComplete {
-                startActivity(intentFor<LoginActivity>()).apply { finish() }
-            }
+            .doOnComplete { startActivity(intentFor<LoginActivity>()).apply { finish() } }
             .subscribe())
     }
 

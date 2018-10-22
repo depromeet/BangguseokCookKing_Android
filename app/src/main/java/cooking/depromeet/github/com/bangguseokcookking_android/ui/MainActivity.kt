@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import cooking.depromeet.github.com.bangguseokcookking_android.R
+import cooking.depromeet.github.com.bangguseokcookking_android.ui.mypage.MypageActivity
 import cooking.depromeet.github.com.bangguseokcookking_android.ui.search.SearchActivity
 import cooking.depromeet.github.com.bangguseokcookking_android.ui.write.WriteActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -30,7 +31,7 @@ class MainActivity : AppCompatActivity() {
 
         // 마이페이지
         main_ib_mypage.setOnClickListener {
-
+            startActivity(intentFor<MypageActivity>())
         }
 
         // 글쓰기

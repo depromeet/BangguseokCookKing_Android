@@ -18,16 +18,12 @@ class LoginActivity : AppCompatActivity() {
         )
         setContentView(R.layout.activity_login)
 
-        login_btn_kakao.setOnClickListener {
-            startActivity(intentFor<MainActivity>())
-        }
+        login_btn_kakao.setOnClickListener { openMainActivity() }
 
-        login_btn_facebook.setOnClickListener {
-            startActivity(intentFor<MainActivity>())
-        }
+        login_btn_facebook.setOnClickListener { openMainActivity() }
 
-        login_btn_naver.setOnClickListener {
-            startActivity(intentFor<MainActivity>())
-        }
+        login_btn_naver.setOnClickListener { openMainActivity() }
     }
+
+    private fun openMainActivity() = startActivity(intentFor<MainActivity>().apply { finish() })
 }
