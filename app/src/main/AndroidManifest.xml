@@ -12,13 +12,7 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity android:name=".MainActivity"
-                  android:windowSoftInputMode="adjustNothing">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
+                  android:windowSoftInputMode="adjustNothing"/>
         <activity android:name=".recipe.RecipeActivity">
         </activity>
 
@@ -26,6 +20,15 @@
 
         <activity android:name=".search.SearchActivity"
                   android:windowSoftInputMode="stateVisible|adjustNothing"/>
+
+        <activity android:name=".splash.SplashActivity"
+                  android:theme="@style/Theme.AppCompat.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
