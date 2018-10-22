@@ -25,6 +25,7 @@
             app:layout_constraintGuide_percent="0.96"
             android:layout_height="0dp"/>
 
+
     <TextView
             android:id="@+id/main_tv_content"
             tools:text="안녕하세요 ‘만랩요리사’님!
@@ -52,15 +53,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/main_menu_recycler_view"
+            app:layout_constraintTop_toBottomOf="@id/main_tv_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="24dp"
+            android:scrollbars="none"
+            android:nestedScrollingEnabled="false"
+            android:layout_width="0dp"
+            android:layout_height="40dp"/>
+
 
     <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/main_recycler_view"
             android:layout_width="0dp"
+            android:scrollbars="none"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginTop="30dp"
-            android:id="@+id/main_recycler_view"
-            app:layout_constraintTop_toBottomOf="@id/main_tv_content"
+            app:layout_constraintTop_toBottomOf="@id/main_menu_recycler_view"
             android:layout_height="0dp"/>
 
 

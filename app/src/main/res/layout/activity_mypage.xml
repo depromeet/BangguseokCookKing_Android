@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+            android:fillViewport="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/mypage_start_guide"
+                    android:layout_width="0dp"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.056"
+                    android:layout_height="0dp"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/mypage_end_guide"
+                    android:layout_width="0dp"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.944"
+                    android:layout_height="0dp"/>
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/mypage_ib_back"
+                    android:src="@drawable/ic_back"
+                    android:background="@null"
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="17dp"
+                    android:layout_marginStart="10dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:id="@+id/mypage_tv_title"
+                    android:textColor="#000000"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="12dp"
+                    android:lineSpacingExtra="8sp"
+                    android:gravity="center_horizontal"
+                    android:text="마이 페이지"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="0dp"
+                    android:scaleType="fitXY"
+                    android:layout_marginTop="32dp"
+                    android:id="@+id/mypage_iv_thumbnail"
+                    app:layout_constraintDimensionRatio="H, 1: 1"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent="0.22"
+                    app:layout_constraintTop_toBottomOf="@id/mypage_tv_title"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_height="0dp"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/mypage_tv_name"
+                    android:layout_marginTop="12dp"
+                    tools:text="만랩요리사"
+                    android:textSize="12sp"
+                    android:textColor="#000000"
+                    app:layout_constraintTop_toBottomOf="@id/mypage_iv_thumbnail"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            <View app:layout_constraintTop_toBottomOf="@id/mypage_tv_name"
+                  android:layout_width="0dp"
+                  android:id="@+id/mypage_recipe_top_line"
+                  android:layout_marginTop="18dp"
+                  android:background="#9b9b9b"
+                  android:layout_height="0.5dp"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/mypage_recipe_content"
+                    android:textSize="12sp"
+                    android:textColor="#9b9b9b"
+                    app:layout_constraintTop_toBottomOf="@id/mypage_recipe_top_line"
+                    app:layout_constraintStart_toEndOf="@id/mypage_start_guide"
+                    android:layout_marginTop="5dp"
+                    android:text="나의 레시피"
+                    android:layout_height="wrap_content"/>
+
+            <View app:layout_constraintTop_toBottomOf="@id/mypage_recipe_content"
+                  android:layout_width="0dp"
+                  android:layout_marginTop="5dp"
+                  android:background="#9b9b9b"
+                  android:id="@+id/mypage_recipe_bottom_line"
+                  android:layout_height="0.5dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/mypage_recipe_recycler_view"
+                    app:layout_constraintTop_toBottomOf="@id/mypage_recipe_bottom_line"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:nestedScrollingEnabled="false"
+                    android:scrollbars="none"
+                    android:layout_width="0dp"
+                    tools:listitem="@layout/item_my_recipe"
+                    android:layout_height="wrap_content"/>
+
+            <View app:layout_constraintTop_toBottomOf="@id/mypage_recipe_recycler_view"
+                  android:layout_width="0dp"
+                  android:id="@+id/mypage_bookmark_top_line"
+                  android:layout_marginTop="18dp"
+                  android:background="#9b9b9b"
+                  android:layout_height="0.5dp"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/mypage_bookmark_content"
+                    android:textSize="12sp"
+                    android:textColor="#9b9b9b"
+                    app:layout_constraintTop_toBottomOf="@id/mypage_bookmark_top_line"
+                    app:layout_constraintStart_toEndOf="@id/mypage_start_guide"
+                    android:layout_marginTop="5dp"
+                    android:text="북마크한 레시피"
+                    android:layout_height="wrap_content"/>
+
+            <View app:layout_constraintTop_toBottomOf="@id/mypage_bookmark_content"
+                  android:layout_width="0dp"
+                  android:layout_marginTop="5dp"
+                  android:background="#9b9b9b"
+                  android:id="@+id/mypage_bookmark_bottom_line"
+                  android:layout_height="0.5dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/mypage_bookmark_recycler_view"
+                    app:layout_constraintTop_toBottomOf="@id/mypage_bookmark_bottom_line"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:nestedScrollingEnabled="false"
+                    android:scrollbars="none"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="0dp"
+                    android:layout_height="170dp"/>
+
+            <View app:layout_constraintTop_toBottomOf="@id/mypage_bookmark_recycler_view"
+                  android:layout_width="0dp"
+                  android:id="@+id/mypage_like_top_line"
+                  android:background="#9b9b9b"
+                  android:layout_height="0.5dp"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/mypage_like_content"
+                    android:textSize="12sp"
+                    android:textColor="#9b9b9b"
+                    app:layout_constraintTop_toBottomOf="@id/mypage_like_top_line"
+                    app:layout_constraintStart_toEndOf="@id/mypage_start_guide"
+                    android:layout_marginTop="5dp"
+                    android:text="좋아요한 레시피"
+                    android:layout_height="wrap_content"/>
+
+            <View app:layout_constraintTop_toBottomOf="@id/mypage_like_content"
+                  android:layout_width="0dp"
+                  android:layout_marginTop="5dp"
+                  android:background="#9b9b9b"
+                  android:id="@+id/mypage_like_bottom_line"
+                  android:layout_height="0.5dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/mypage_like_recycler_view"
+                    app:layout_constraintTop_toBottomOf="@id/mypage_like_bottom_line"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:nestedScrollingEnabled="false"
+                    android:scrollbars="none"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

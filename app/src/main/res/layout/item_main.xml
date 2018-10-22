@@ -19,7 +19,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:scaleType="fitXY"
+                android:scaleType="center"
                 android:layout_height="160dp"/>
 
         <androidx.appcompat.widget.AppCompatTextView

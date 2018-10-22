@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+            android:id="@+id/menu_recipe"
+            android:icon="@drawable/ic_mypage_gray"
+            android:title="나의 레시피"/>
+    <item
+            android:id="@+id/menu_book_mark"
+            android:icon="@drawable/ic_save_gray"
+            android:title="북마크한 레시피"/>
+
+    <item
+            android:id="@+id/menu_like"
+            android:icon="@drawable/ic_like_gray"
+            android:title="좋아요"/>
+
+</menu>
