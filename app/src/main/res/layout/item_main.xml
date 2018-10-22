@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        app:cardCornerRadius="5dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_height="250dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/item_main_iv_image"
+                android:layout_width="0dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:scaleType="center"
+                android:layout_height="160dp"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/item_main_tv_title"
+                tools:text="계란찜"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/item_main_iv_image"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="18dp"
+                android:textSize="20sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        <androidx.appcompat.widget.AppCompatImageButton
+                android:layout_width="wrap_content"
+                android:id="@+id/item_main_ib_save"
+                android:background="@drawable/ic_icon_save"
+                app:layout_constraintTop_toTopOf="@id/item_main_tv_title"
+                app:layout_constraintBottom_toBottomOf="@id/item_main_tv_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="20dp"
+                android:layout_height="wrap_content"/>
+
+        <androidx.appcompat.widget.AppCompatImageButton
+                android:layout_width="wrap_content"
+                android:id="@+id/item_main_ib_like"
+                android:background="@drawable/ic_icon_like"
+                app:layout_constraintTop_toBottomOf="@id/item_main_tv_title"
+                app:layout_constraintStart_toStartOf="@id/item_main_tv_title"
+                android:layout_marginTop="7dp"
+                android:layout_height="wrap_content"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:id="@+id/item_main_tv_like_count"
+                app:layout_constraintTop_toTopOf="@id/item_main_ib_like"
+                app:layout_constraintStart_toEndOf="@id/item_main_ib_like"
+                app:layout_constraintBottom_toBottomOf="@id/item_main_ib_like"
+                tools:text="999"
+                android:textSize="14sp"
+                android:textColor="#5e5e5e"
+                android:layout_height="wrap_content"/>
+
+        <androidx.appcompat.widget.AppCompatImageButton
+                android:layout_width="wrap_content"
+                android:id="@+id/item_main_ib_comments"
+                android:background="@drawable/ic_icon_comments"
+                app:layout_constraintTop_toBottomOf="@id/item_main_tv_title"
+                app:layout_constraintStart_toEndOf="@id/item_main_tv_like_count"
+                android:layout_marginTop="7dp"
+                android:layout_height="wrap_content"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:id="@+id/item_main_tv_comments_count"
+                app:layout_constraintTop_toTopOf="@id/item_main_ib_comments"
+                app:layout_constraintStart_toEndOf="@id/item_main_ib_comments"
+                app:layout_constraintBottom_toBottomOf="@id/item_main_ib_comments"
+                tools:text="999"
+                android:textSize="14sp"
+                android:textColor="#5e5e5e"
+                android:layout_height="wrap_content"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/item_main_tv_difficult"
+                android:layout_width="wrap_content"
+                android:textColor="#5e5e5e"
+                android:textSize="14sp"
+                tools:text="쉬움"
+                app:layout_constraintTop_toBottomOf="@id/item_main_ib_save"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="11dp"
+                android:layout_marginEnd="32dp"
+                android:layout_height="wrap_content"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>
