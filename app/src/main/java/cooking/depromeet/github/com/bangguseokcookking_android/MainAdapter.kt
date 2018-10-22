@@ -7,7 +7,7 @@ import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import cooking.depromeet.github.com.bangguseokcookking_android.api.domain.MainRecipe
+import cooking.depromeet.github.com.bangguseokcookking_android.domain.MainRecipe
 import cooking.depromeet.github.com.bangguseokcookking_android.util.base_url
 
 class MainAdapter(

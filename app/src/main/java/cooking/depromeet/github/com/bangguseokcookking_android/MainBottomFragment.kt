@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import cooking.depromeet.github.com.bangguseokcookking_android.api.RetrofitService
-import cooking.depromeet.github.com.bangguseokcookking_android.api.domain.MainRecipe
+import cooking.depromeet.github.com.bangguseokcookking_android.domain.MainRecipe
 import cooking.depromeet.github.com.bangguseokcookking_android.recipe.RecipeActivity
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable

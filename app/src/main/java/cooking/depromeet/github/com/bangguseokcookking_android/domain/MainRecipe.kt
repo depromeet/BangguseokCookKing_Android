@@ -1,4 +1,4 @@
-package cooking.depromeet.github.com.bangguseokcookking_android.api.domain
+package cooking.depromeet.github.com.bangguseokcookking_android.domain
 
 import com.google.gson.annotations.SerializedName
 

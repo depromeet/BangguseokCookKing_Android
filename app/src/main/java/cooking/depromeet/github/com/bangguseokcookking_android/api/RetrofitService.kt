@@ -1,7 +1,7 @@
 package cooking.depromeet.github.com.bangguseokcookking_android.api
 
 import com.google.gson.annotations.SerializedName
-import cooking.depromeet.github.com.bangguseokcookking_android.api.domain.MainRecipe
+import cooking.depromeet.github.com.bangguseokcookking_android.domain.MainRecipe
 import cooking.depromeet.github.com.bangguseokcookking_android.util.base_url
 import cooking.depromeet.github.com.bangguseokcookking_android.util.main_list_param
 import io.reactivex.Single
