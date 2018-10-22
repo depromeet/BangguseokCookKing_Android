@@ -77,6 +77,7 @@
                     app:layout_constraintWidth_percent="0.893"
                     android:paddingEnd="12dp"
                     android:layout_marginTop="30dp"
+                    android:stateListAnimator="@null"
                     android:drawableEnd="@drawable/ic_search"
                     app:layout_constraintHorizontal_chainStyle="packed"
                     app:layout_constraintHeight_percent="0.075"
@@ -97,7 +98,6 @@
                 app:behavior_skipCollapsed="true"
                 app:layout_behavior="@string/bottom_sheet_behavior"
                 android:name="cooking.depromeet.github.com.bangguseokcookking_android.MainBottomFragment"/>
-
 
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
