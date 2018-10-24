@@ -6,13 +6,14 @@ import cooking.depromeet.github.com.bangguseokcookking_android.util.base_url
 import cooking.depromeet.github.com.bangguseokcookking_android.util.main_list_param
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
+import okhttp3.MultipartBody
 import okhttp3.OkHttpClient
+import okhttp3.RequestBody
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.GET
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface RetrofitService {
 
@@ -24,6 +25,22 @@ interface RetrofitService {
         @SerializedName("code") val code: Int,
         @SerializedName("message") val message: String,
         @SerializedName("data") val recipeList: MutableList<MainRecipe>
+    )
+
+    // recipe upload
+    @Multipart
+    @POST("recipe")
+    fun uploadRecipe(
+        @Part recipe: MultipartBody.Part,
+        @Part subRecipe: MutableList<MultipartBody.Part>,
+        @PartMap param: HashMap<String, RequestBody>
+    ): Single<UploadResponse>
+
+    data class UploadResponse(
+        @SerializedName("success") val success: Boolean,
+        @SerializedName("code") val code: Int,
+        @SerializedName("message") val message: String,
+        @SerializedName("time") val time: String
     )
 
     companion object {
