@@ -1,5 +1,7 @@
 package cooking.depromeet.github.com.bangguseokcookking_android
 
+import com.google.gson.JsonObject
+import org.json.JSONObject
 import org.junit.Test
 
 import org.junit.Assert.*
