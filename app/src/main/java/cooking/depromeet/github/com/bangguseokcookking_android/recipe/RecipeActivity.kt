@@ -26,6 +26,8 @@ class RecipeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_recipe)
         setSupportActionBar(toolbar)
 
+        
+
         supportActionBar?.apply {
             setDisplayShowTitleEnabled(false)
             toolbar_title.text = getString(R.string.recipe_title)

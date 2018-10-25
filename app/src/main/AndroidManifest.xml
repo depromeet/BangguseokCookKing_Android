@@ -14,8 +14,6 @@
             android:theme="@style/AppTheme">
         <activity android:name=".ui.MainActivity"
                   android:windowSoftInputMode="adjustNothing"/>
-        <activity android:name=".recipe.RecipeActivity">
-        </activity>
 
         <activity android:name=".ui.write.WriteActivity"/>
 
@@ -30,15 +28,11 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-<<<<<<< HEAD
 
         <activity android:name=".ui.login.LoginActivity"
                   android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity android:name=".ui.mypage.MypageActivity"/>
-=======
-        <activity android:name=".recipe.RecipeActivity" android:theme="@style/RecipeTheme">
-        </activity>
->>>>>>> recipe
+        <activity android:name=".recipe.RecipeActivity" android:theme="@style/RecipeTheme"/>
     </application>
 
 </manifest>

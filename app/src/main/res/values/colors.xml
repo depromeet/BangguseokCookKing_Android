@@ -3,11 +3,9 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
-<<<<<<< HEAD
 
     <color name="menu_white">#ffffff</color>
     <color name="menu_gray">#5e5e5e</color>
-=======
     <color name="colorPrimaryRecipe">#FFFFFF</color>
     <color name="colorPrimaryDarkRecipe">#FFFFFF</color>
     <color name="colorAccentRecipe">#ffb245</color>
@@ -15,5 +13,4 @@
     <color name="colorPrimaryText">#000000</color>
     <color name="colorSecondaryText">#5e5e5e</color>
     <color name="colorDivider">#f1f1f1</color>
->>>>>>> recipe
 </resources>

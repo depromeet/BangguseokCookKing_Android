@@ -1,21 +1,5 @@
-<<<<<<< HEAD
-<vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="16dp"
-    android:height="16dp"
-    android:viewportWidth="16"
-    android:viewportHeight="16">
-  <path
-      android:pathData="M7.071,0.929l0.707,0.707 -7.07,7.071L0,8z"
-      android:fillColor="#000"
-      android:fillType="evenOdd"/>
-  <path
-      android:pathData="M7.778,14.364l-0.707,0.707L0,8l0.707,-0.707z"
-      android:fillColor="#000"
-      android:fillType="evenOdd"/>
-=======
 <vector android:height="24dp" android:viewportHeight="16"
     android:viewportWidth="16" android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
     <path android:fillColor="#000" android:fillType="evenOdd" android:pathData="M7.071,0.929l0.707,0.707 -7.07,7.071L0,8z"/>
     <path android:fillColor="#000" android:fillType="evenOdd" android:pathData="M7.778,14.364l-0.707,0.707L0,8l0.707,-0.707z"/>
->>>>>>> recipe
 </vector>
