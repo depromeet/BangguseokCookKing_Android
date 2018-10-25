@@ -7,4 +7,17 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+<<<<<<< HEAD
+=======
+
+    <style name="RecipeTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimaryRecipe</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkRecipe</item>
+        <item name="colorAccent">@color/colorAccentRecipe</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="elevation">0dp</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+>>>>>>> recipe
 </resources>

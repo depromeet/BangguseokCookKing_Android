@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">방구석 요리왕</string>
+    <string name="recipe_title">요리법 상세보기</string>
+    <string name="ingredient_title">필요한 재료</string>
+    <string name="sequence_title">만드는 방법</string>
+    <string name="comment_title">댓글</string>
+    <string name="comment_write">댓글쓰기</string>
 </resources>
